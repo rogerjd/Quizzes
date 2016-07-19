@@ -11,12 +11,12 @@ namespace Quizzes
         const string inStr = "The quick brown fox, jumped over the lazy dog.";
         static string delims = ", .";
 
-        public static void Main()
+        public static void Run()
         {
             string word = "";
             string res = "";
 
-            for (int i = 0; i < inStr.Length ; i++)
+            for (int i = 0; i < inStr.Length; i++)
             {
                 if (delims.Contains(inStr[i]))
                 {
@@ -30,6 +30,11 @@ namespace Quizzes
                 else
                 {
                     word += inStr[i];
+                    if (i == inStr.Length-1)
+                    {
+                        res += RevWord(word);
+                        word = "";
+                    }
                 }
             }
             Console.WriteLine(res);
@@ -39,7 +44,7 @@ namespace Quizzes
         private static string RevWord(string word)
         {
             string res = "";
-            for (int i = word.Length-1; i >= 0; i--)
+            for (int i = word.Length - 1; i >= 0; i--)
             {
                 res += word[i];
             }
