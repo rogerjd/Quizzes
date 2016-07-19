@@ -30,7 +30,10 @@ namespace Quizzes
                 else
                 {
                     word += inStr[i];
-                    if (i == inStr.Length-1)
+
+                    //last char is not a delim
+                    //could also add delim to input str, if missing
+                    if (i == inStr.Length-1) 
                     {
                         res += RevWord(word);
                         word = "";
